@@ -1,14 +1,23 @@
-import axios from 'axios';
-
-const BASE_URL = 'https://api.themoviedb.org/3/';
-const API_KEY = 'd2aabebb930fa1a823002bbd5c0c00b2';
-
-function getMovies(query) {
-  const response = axios.get(`${BASE_URL}?api_key=${API_KEY}&${query}`);
-  return response.json;
-}
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './Layout/Layout';
+import Home from 'pages/Home/Home';
+import Movies from 'pages/Movies/Movies';
+import MovieDetails from 'pages/MovieDetails/MovieDetails';
+import Cast from './Cast/Cast';
+import Reviews from './Reviews/Reviews';
 
 export const App = () => {
-  getMovies('cat').then(resp => console.log(resp));
-  return <div>React homework template</div>;
+  return (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="movies" element={<Movies />} />
+        <Route path="movies/:movieId" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
+        <Route path="*" element={<div>404 return on Home</div>} />
+      </Route>
+    </Routes>
+  );
 };

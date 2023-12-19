@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 
 import { getMoviesById } from 'helpers/api';
+import AnimatedLoader from 'components/Loader/Loader';
 
 const baseImageURL = 'https://image.tmdb.org/t/p/w300/';
 
@@ -49,7 +50,9 @@ const MovieDetails = () => {
           <Link to="reviews">Reviews</Link>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<AnimatedLoader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

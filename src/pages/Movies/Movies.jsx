@@ -11,7 +11,6 @@ const Movies = () => {
     const search = searchParams.get('search') ?? '';
     if (!search) return;
     getMoviesByName(search).then(result => {
-      console.log(result.results);
       setMovies(result.results);
     });
   }, [searchParams]);

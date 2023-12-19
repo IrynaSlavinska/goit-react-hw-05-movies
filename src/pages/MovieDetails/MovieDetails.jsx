@@ -11,7 +11,7 @@ const MovieDetails = () => {
   const [genres, setGenres] = useState([]);
   const location = useLocation();
 
-  const backLinkLocationRef = useRef(location.state?.from ?? '');
+  const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
     getMoviesById(movieId).then(result => {

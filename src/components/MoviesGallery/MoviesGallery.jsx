@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   MoviesList,
   MovieCard,
@@ -10,26 +10,21 @@ import defaultImage from 'components/popcorn.jpg';
 const baseImageURL = 'https://image.tmdb.org/t/p/w300/';
 
 const MoviesGallery = ({ movies }) => {
+  const location = useLocation();
+
   return (
     <MoviesList>
-      {movies.map(movie => {
+      {movies.map(({ id, poster_path, title }) => {
         return (
-          <MovieCard key={movie.id}>
-            <Link to={`movies/${movie.id}`}>
-              {/* <CoverImage
-                src={defaultImage}
-                alt={movie.title}
-                width="250"
-                height="350"
-              /> */}
-
+          <MovieCard key={id}>
+            <Link to={`/movies/${id}`} state={{ from: location }}>
               <CoverImage
-                src={`${baseImageURL}${movie.poster_path}`}
-                alt={movie.title}
+                src={`${baseImageURL}${poster_path}`}
+                alt={title}
                 width="250"
                 height="350"
               />
-              <MovieTitle>{movie.title}</MovieTitle>
+              <MovieTitle>{title}</MovieTitle>
             </Link>
           </MovieCard>
         );

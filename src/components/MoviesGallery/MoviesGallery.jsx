@@ -5,7 +5,6 @@ import {
   CoverImage,
   MovieTitle,
 } from 'pages/Home/Home.styled';
-import defaultImage from 'components/popcorn.jpg';
 
 const baseImageURL = 'https://image.tmdb.org/t/p/w300/';
 

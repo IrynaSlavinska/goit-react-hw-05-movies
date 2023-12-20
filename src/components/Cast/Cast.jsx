@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCastActors } from 'helpers/api';
+import defaultImage from 'components/popcorn.jpg';
 
 const baseUrl = 'https://image.tmdb.org/t/p/w300';
 
@@ -19,7 +20,13 @@ const Cast = () => {
     <ul>
       {cast.map(({ id, profile_path, character, name }) => (
         <li key={id}>
-          <img src={`${baseUrl}${profile_path}`} alt={name} />
+          <img
+            src={profile_path ? `${baseUrl}${profile_path}` : defaultImage}
+            alt={name}
+            width="150"
+            height="250"
+          />
+
           <p>
             Character: <span>{character}</span>
           </p>

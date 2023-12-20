@@ -5,6 +5,7 @@ import {
   CoverImage,
   MovieTitle,
 } from 'pages/Home/Home.styled';
+import defaultImage from 'components/popcorn.jpg';
 
 const baseImageURL = 'https://image.tmdb.org/t/p/w300/';
 
@@ -18,7 +19,9 @@ const MoviesGallery = ({ movies }) => {
           <MovieCard key={id}>
             <Link to={`/movies/${id}`} state={{ from: location }}>
               <CoverImage
-                src={`${baseImageURL}${poster_path}`}
+                src={
+                  poster_path ? `${baseImageURL}${poster_path}` : defaultImage
+                }
                 alt={title}
                 width="250"
                 height="350"

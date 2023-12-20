@@ -1,8 +1,15 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
-import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
+import {
+  useParams,
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 
 import { getMoviesById } from 'helpers/api';
 import AnimatedLoader from 'components/Loader/Loader';
+import defaultImage from 'components/popcorn.jpg';
 
 const baseImageURL = 'https://image.tmdb.org/t/p/w300/';
 
@@ -11,21 +18,31 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const [genres, setGenres] = useState([]);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
-    getMoviesById(movieId).then(result => {
-      setMovie(result);
-      setGenres(result.genres);
-    });
-  }, [movieId]);
+    getMoviesById(movieId)
+      .then(result => {
+        setMovie(result);
+        setGenres(result.genres);
+      })
+      .catch(() => {
+        navigate('/');
+      });
+  }, [movieId, navigate]);
 
   return (
     <>
       <Link to={backLinkLocationRef.current}>Back to collection</Link>
+
       <img
-        src={`${baseImageURL}${movie.poster_path}`}
+        src={
+          movie.poster_path
+            ? `${baseImageURL}${movie.poster_path}`
+            : defaultImage
+        }
         alt={movie.title}
         width="250"
         height="350"
@@ -41,7 +58,6 @@ const MovieDetails = () => {
         )}
       </ul>
       <p>Release date: {movie.release_date}</p>
-
       <ul>
         <li>
           <Link to="cast">Cast</Link>

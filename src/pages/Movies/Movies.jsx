@@ -17,27 +17,16 @@ const Movies = () => {
 
   const submitHandler = e => {
     e.preventDefault();
-  };
 
-  const updateQueryString = evt => {
-    const movieValue = evt.target.value.trim().toLowerCase();
-
-    if (movieValue === '') {
-      return setSearchParams({});
-    }
-    setSearchParams({ search: movieValue });
+    const movieValue = e.target.search.value.trim().toLowerCase();
+    setSearchParams({ search: movieValue === '' ? {} : movieValue });
   };
 
   return (
     <>
       <form onSubmit={submitHandler}>
         <label>
-          <input
-            type="text"
-            placeholder="Enter movie name..."
-            onChange={updateQueryString}
-            name="search"
-          />
+          <input type="text" placeholder="Enter movie name..." name="search" />
           <button type="submit">search</button>
         </label>
       </form>

@@ -1,22 +1,21 @@
 import styled from '@emotion/styled';
 
-export const PopularTitle = styled.h1`
-  text-align: center;
-  margin-bottom: 12px;
-`;
-
 export const MoviesList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 50px;
+  gap: 20px;
 `;
 
 export const MovieCard = styled.li`
   width: 250px;
-  border-radius: 16px;
-  background-color: rgb(149, 219, 237);
-  padding: 8px;
+  background-color: rgb(50, 50, 87);
+  padding: 10px;
+  transition: transform 0.3s linear;
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
 `;
 
 export const CoverImage = styled.img`
@@ -28,4 +27,5 @@ export const MovieTitle = styled.h3`
   margin-top: 12px;
   font-size: 18px;
   text-align: center;
+  color: #ffffff;
 `;

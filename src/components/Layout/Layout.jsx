@@ -1,6 +1,13 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import { Container, Header, Navigation, NavItem, Main } from './Layout.styled';
+import {
+  Container,
+  Header,
+  Navigation,
+  NavItem,
+  StyledNav,
+  Main,
+} from './Layout.styled';
 import AnimatedLoader from 'components/Loader/Loader';
 
 const Layout = () => {
@@ -9,10 +16,10 @@ const Layout = () => {
       <Header>
         <Navigation>
           <NavItem>
-            <NavLink to="/">Home</NavLink>
+            <StyledNav to="/">Home</StyledNav>
           </NavItem>
           <NavItem>
-            <NavLink to="/movies">Movies</NavLink>
+            <StyledNav to="/movies">Movies</StyledNav>
           </NavItem>
         </Navigation>
       </Header>

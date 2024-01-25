@@ -6,6 +6,16 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
+import {
+  StyledNav,
+  MovieContainer,
+  Container,
+  Title,
+  About,
+  Genres,
+  GenresList,
+  GenreItem,
+} from './MovieDetails.styled';
 
 import { getMoviesById } from 'helpers/api';
 import AnimatedLoader from 'components/Loader/Loader';
@@ -35,29 +45,36 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={backLinkLocationRef.current}>Back to collection</Link>
+      <StyledNav to={backLinkLocationRef.current}>Back to collection</StyledNav>
 
-      <img
-        src={
-          movie.poster_path
-            ? `${baseImageURL}${movie.poster_path}`
-            : defaultImage
-        }
-        alt={movie.title}
-        width="250"
-        height="350"
-      />
-      <h1>{movie.title}</h1>
-      <p>{movie.overview}</p>
-      <p>Genres:</p>
-      <ul>
-        {genres.length !== 0 ? (
-          genres.map(genre => <li key={genre.id}>{genre.name}</li>)
-        ) : (
-          <li>Unknown</li>
-        )}
-      </ul>
-      <p>Release date: {movie.release_date}</p>
+      <MovieContainer>
+        <img
+          src={
+            movie.poster_path
+              ? `${baseImageURL}${movie.poster_path}`
+              : defaultImage
+          }
+          alt={movie.title}
+          width="250"
+          height="350"
+        />
+
+        <Container>
+          <Title>{movie.title}</Title>
+          <About>{movie.overview}</About>
+          <Genres>Genres:</Genres>
+          <GenresList>
+            {genres.length !== 0 ? (
+              genres.map(genre => (
+                <GenreItem key={genre.id}>{genre.name}</GenreItem>
+              ))
+            ) : (
+              <GenreItem>Unknown</GenreItem>
+            )}
+          </GenresList>
+          <About>Release date: {movie.release_date}</About>
+        </Container>
+      </MovieContainer>
       <ul>
         <li>
           <Link to="cast">Cast</Link>

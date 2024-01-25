@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getMoviesByName } from 'helpers/api';
 import MoviesGallery from 'components/MoviesGallery/MoviesGallery';
+import { Form, Input, Label, Button } from './Movies.styled';
+import { CiSearch } from 'react-icons/ci';
+import { IconContext } from 'react-icons';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -24,12 +27,16 @@ const Movies = () => {
 
   return (
     <>
-      <form onSubmit={submitHandler}>
-        <label>
-          <input type="text" placeholder="Enter movie name..." name="search" />
-          <button type="submit">search</button>
-        </label>
-      </form>
+      <Form onSubmit={submitHandler}>
+        <Label>
+          <Input type="text" placeholder="Enter movie name..." name="search" />
+          <Button type="submit">
+            <IconContext.Provider value={{ color: '#ffffff', size: 40 }}>
+              <CiSearch />
+            </IconContext.Provider>
+          </Button>
+        </Label>
+      </Form>
       <MoviesGallery movies={movies} />
     </>
   );

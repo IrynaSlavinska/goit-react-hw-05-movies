@@ -34,3 +34,17 @@ export const getActors = async () => {
   const response = await axios.get('/person/popular');
   return response.data.results;
 };
+
+export const getActorById = async actorId => {
+  const response = await axios.get(`/person/${actorId}`);
+  return response.data;
+};
+export const getActorFilms = async actorId => {
+  const response = await axios.get(`/person/${actorId}/movie_credits`);
+  return response.data;
+};
+
+export const getActorGallery = async actorId => {
+  const response = await axios.get(`/person/${actorId}/images`);
+  return response.data;
+};

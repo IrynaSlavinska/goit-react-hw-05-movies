@@ -7,9 +7,11 @@ const Movies = lazy(() => import('pages/Movies/Movies'));
 const Actors = lazy(() => import('pages/Actors/Actors'));
 const MovieDetails = lazy(() => import('pages/MovieDetails/MovieDetails'));
 const ActorDetails = lazy(() => import('pages/ActorDetails/ActorDetails'));
-const NotFound = lazy(() => import('pages/NotFound/NotFound'));
 const Cast = lazy(() => import('./Cast/Cast'));
 const Reviews = lazy(() => import('./Reviews/Reviews'));
+const Filmography = lazy(() => import('./Filmography/Filmography'));
+const Gallery = lazy(() => import('./Gallery/Gallery'));
+const NotFound = lazy(() => import('pages/NotFound/NotFound'));
 
 export const App = () => {
   return (
@@ -21,8 +23,14 @@ export const App = () => {
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
+
+        <Route path="actors/:actorId" element={<ActorDetails />}>
+          <Route path="films" element={<Filmography />} />
+          <Route path="gallery" element={<Gallery />} />
+        </Route>
+
         <Route path="actors" element={<Actors />} />
-        <Route path="actors/:id" element={<ActorDetails />} />
+        <Route path="actors/:actorId" element={<ActorDetails />} />
         <Route path="*" element={<NotFound to={'/'} />}></Route>
       </Route>
     </Routes>

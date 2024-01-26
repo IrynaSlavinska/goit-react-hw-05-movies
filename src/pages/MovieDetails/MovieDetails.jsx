@@ -9,6 +9,7 @@ import {
   Subtitle,
   List,
   GenreItem,
+  CompanyLogo,
 } from './MovieDetails.styled';
 
 import { getMoviesById } from 'helpers/api';
@@ -21,6 +22,7 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
   const [genres, setGenres] = useState([]);
+  const [company, setCompany] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -31,6 +33,7 @@ const MovieDetails = () => {
       .then(result => {
         setMovie(result);
         setGenres(result.genres);
+        setCompany(result.production_companies[0]);
       })
       .catch(() => {
         navigate('/');
@@ -68,6 +71,13 @@ const MovieDetails = () => {
           </List>
           <Subtitle>Release date:</Subtitle>
           <About>{movie.release_date}</About>
+          <Subtitle>Production company:</Subtitle>
+
+          <CompanyLogo
+            src={`${baseImageURL}${company.logo_path}`}
+            alt={company.name}
+            width={100}
+          />
         </Container>
       </MovieContainer>
       <List>

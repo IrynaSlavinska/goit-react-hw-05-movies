@@ -14,6 +14,7 @@ export const MovieContainer = styled.div`
   gap: 60px;
   align-items: center;
   margin-bottom: 20px;
+  padding: 50px;
 `;
 
 export const Container = styled.div``;
@@ -47,4 +48,9 @@ export const List = styled.ul`
 export const GenreItem = styled.li`
   color: #ffffff;
   font-size: 18px;
+`;
+
+export const CompanyLogo = styled.img`
+  background-color: #ffffff;
+  padding: 10px;
 `;

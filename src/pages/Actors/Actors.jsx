@@ -9,7 +9,6 @@ const Actors = () => {
   useEffect(() => {
     getActors()
       .then(result => {
-        console.log(result);
         setActors(result);
       })
       .catch(err => console.log(err));

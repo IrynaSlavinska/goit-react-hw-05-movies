@@ -27,6 +27,12 @@ export const StyledNav = styled(NavLink)`
   &:hover {
     color: rgb(113, 113, 218);
   }
+  &.active {
+    color: #000000;
+    background-color: #e9af3d;
+    padding: 8px;
+    border-radius: 4px;
+  }
 `;
 
 export const Main = styled.main`

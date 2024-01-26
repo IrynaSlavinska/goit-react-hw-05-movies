@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieCastActors } from 'helpers/api';
 import defaultImage from 'components/popcorn.jpg';
+import { List, Card, Img, Text, TextCont } from './Cast.styled';
 
 const baseUrl = 'https://image.tmdb.org/t/p/w300';
 
@@ -11,31 +12,33 @@ const Cast = () => {
   useEffect(() => {
     getMovieCastActors(movieId)
       .then(result => {
+        console.log(result);
         setCast(result.cast);
       })
       .catch(err => console.log(err));
   }, [movieId]);
 
   return cast.length !== 0 ? (
-    <ul>
+    <List>
       {cast.map(({ id, profile_path, character, name }) => (
-        <li key={id}>
-          <img
+        <Card key={id}>
+          <Img
             src={profile_path ? `${baseUrl}${profile_path}` : defaultImage}
             alt={name}
             width="150"
             height="250"
           />
-
-          <p>
-            Character: <span>{character}</span>
-          </p>
-          <p>
-            Actor: <span>{name}</span>
-          </p>
-        </li>
+          <TextCont>
+            <Text>
+              Character: <span>{character}</span>
+            </Text>
+            <Text>
+              Actor: <span>{name}</span>
+            </Text>
+          </TextCont>
+        </Card>
       ))}
-    </ul>
+    </List>
   ) : (
     <p>Unknown</p>
   );

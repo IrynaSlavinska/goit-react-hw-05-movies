@@ -40,4 +40,6 @@ body {
 
 .container {
   color: rgb(50, 50, 87);
+  align-items: center;
+  justify-content: center;
 }

@@ -1,19 +1,13 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
-import {
-  useParams,
-  Link,
-  Outlet,
-  useLocation,
-  useNavigate,
-} from 'react-router-dom';
+import { useParams, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {
   StyledNav,
   MovieContainer,
   Container,
   Title,
   About,
-  Genres,
-  GenresList,
+  Subtitle,
+  List,
   GenreItem,
 } from './MovieDetails.styled';
 
@@ -62,8 +56,8 @@ const MovieDetails = () => {
         <Container>
           <Title>{movie.title}</Title>
           <About>{movie.overview}</About>
-          <Genres>Genres:</Genres>
-          <GenresList>
+          <Subtitle>Genres:</Subtitle>
+          <List>
             {genres.length !== 0 ? (
               genres.map(genre => (
                 <GenreItem key={genre.id}>{genre.name}</GenreItem>
@@ -71,18 +65,19 @@ const MovieDetails = () => {
             ) : (
               <GenreItem>Unknown</GenreItem>
             )}
-          </GenresList>
-          <About>Release date: {movie.release_date}</About>
+          </List>
+          <Subtitle>Release date:</Subtitle>
+          <About>{movie.release_date}</About>
         </Container>
       </MovieContainer>
-      <ul>
+      <List>
         <li>
-          <Link to="cast">Cast</Link>
+          <StyledNav to="cast">Cast</StyledNav>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <StyledNav to="reviews">Reviews</StyledNav>
         </li>
-      </ul>
+      </List>
       <Suspense fallback={<AnimatedLoader />}>
         <Outlet />
       </Suspense>

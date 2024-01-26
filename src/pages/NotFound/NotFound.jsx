@@ -1,13 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Title, Text, StyledNav, Container } from './NotFound.styled';
+import { GiSadCrab } from 'react-icons/gi';
+import { IconContext } from 'react-icons';
 
 const NotFound = () => {
   return (
-    <>
-      <h1>404</h1>
-      <p>You have gone to a non existing page</p>
-      <p>Return to the</p>
-      <Link to="/">Home</Link>
-    </>
+    <Container>
+      <IconContext.Provider value={{ color: 'rgb(113, 113, 218)', size: 250 }}>
+        <GiSadCrab />
+      </IconContext.Provider>
+      <Title>404</Title>
+      <Text>You have gone to a non existing page</Text>
+      <Text>Return to the</Text>
+      <StyledNav to="/">Home</StyledNav>
+    </Container>
   );
 };
 

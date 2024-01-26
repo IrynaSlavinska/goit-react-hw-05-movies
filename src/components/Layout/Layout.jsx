@@ -21,6 +21,9 @@ const Layout = () => {
           <NavItem>
             <StyledNav to="/movies">Movies</StyledNav>
           </NavItem>
+          <NavItem>
+            <StyledNav to="/actors">Actors</StyledNav>
+          </NavItem>
         </Navigation>
       </Header>
       <Main>

@@ -32,13 +32,13 @@ export const About = styled.p`
   line-height: 1.5;
 `;
 
-export const Genres = styled.h2`
+export const Subtitle = styled.h2`
   color: #ffffff;
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 6px;
 `;
 
-export const GenresList = styled.ul`
+export const List = styled.ul`
   display: flex;
   gap: 20px;
   margin-bottom: 12px;

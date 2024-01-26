@@ -29,3 +29,8 @@ export const getMovieReview = async movieId => {
   const response = await axios.get(`/movie/${movieId}/reviews`);
   return response.data;
 };
+
+export const getActors = async () => {
+  const response = await axios.get('/person/popular');
+  return response.data.results;
+};

@@ -12,7 +12,7 @@ import AnimatedLoader from 'components/Loader/Loader';
 
 const Layout = () => {
   return (
-    <Container>
+    <>
       <Header>
         <Navigation>
           <NavItem>
@@ -27,11 +27,13 @@ const Layout = () => {
         </Navigation>
       </Header>
       <Main>
-        <Suspense fallback={<AnimatedLoader />}>
-          <Outlet />
-        </Suspense>
+        <Container>
+          <Suspense fallback={<AnimatedLoader />}>
+            <Outlet />
+          </Suspense>
+        </Container>
       </Main>
-    </Container>
+    </>
   );
 };
 

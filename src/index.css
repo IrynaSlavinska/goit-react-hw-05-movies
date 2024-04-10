@@ -1,10 +1,14 @@
-@import-normalize;
-
 :root {
   --background: #130a2e;
   --yellow: #fff352;
-  --transition: 0.5s ease-in-out;
+  --transition: 0.3s linear;
+  --white: #fafafa;
+}
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 h1,

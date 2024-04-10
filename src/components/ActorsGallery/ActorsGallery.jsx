@@ -1,10 +1,4 @@
 import { Link, useLocation } from 'react-router-dom';
-// import {
-//   MoviesList,
-//   MovieCard,
-//   CoverImage,
-//   MovieTitle,
-// } from 'pages/Home/Home.styled';
 import { List, Item, CoverImage, Title } from 'pages/CommonStyles.styled';
 import defaultImage from 'assets/popcorn.jpg';
 

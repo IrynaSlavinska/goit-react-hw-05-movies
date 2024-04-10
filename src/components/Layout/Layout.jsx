@@ -19,10 +19,10 @@ const Layout = () => {
             <StyledNav to="/">Home</StyledNav>
           </NavItem>
           <NavItem>
-            <StyledNav to="/movies">Movies</StyledNav>
+            <StyledNav to="/actors">Actors</StyledNav>
           </NavItem>
           <NavItem>
-            <StyledNav to="/actors">Actors</StyledNav>
+            <StyledNav to="/search">Search</StyledNav>
           </NavItem>
         </Navigation>
       </Header>

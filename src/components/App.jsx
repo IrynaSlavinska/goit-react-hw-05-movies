@@ -3,7 +3,7 @@ import { lazy } from 'react';
 import Layout from './Layout/Layout';
 
 const Home = lazy(() => import('pages/Home/Home'));
-const Movies = lazy(() => import('pages/Movies/Movies'));
+const Search = lazy(() => import('pages/Search/Search'));
 const Actors = lazy(() => import('pages/Actors/Actors'));
 const MovieDetails = lazy(() => import('pages/MovieDetails/MovieDetails'));
 const ActorDetails = lazy(() => import('pages/ActorDetails/ActorDetails'));
@@ -18,19 +18,18 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="movies" element={<Movies />} />
+        <Route path="search" element={<Search />} />
         <Route path="movies/:movieId" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
 
+        <Route path="actors" element={<Actors />} />
         <Route path="actors/:actorId" element={<ActorDetails />}>
           <Route path="films" element={<Filmography />} />
           <Route path="gallery" element={<Gallery />} />
         </Route>
 
-        <Route path="actors" element={<Actors />} />
-        <Route path="actors/:actorId" element={<ActorDetails />} />
         <Route path="*" element={<NotFound to={'/'} />}></Route>
       </Route>
     </Routes>

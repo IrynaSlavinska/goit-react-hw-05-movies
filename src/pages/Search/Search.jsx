@@ -6,7 +6,7 @@ import { Form, Input, Label, Button } from './Movies.styled';
 import { CiSearch } from 'react-icons/ci';
 import { IconContext } from 'react-icons';
 
-const Movies = () => {
+const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
 
@@ -42,4 +42,4 @@ const Movies = () => {
   );
 };
 
-export default Movies;
+export default Search;

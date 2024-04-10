@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getMovieCastActors } from 'helpers/api';
-import defaultImage from 'assets/popcorn.jpg';
-
 import { List, Card, Img, Text, TextCont } from './Cast.styled';
+import defaultImage from 'assets/popcorn.jpg';
 
 const baseUrl = 'https://image.tmdb.org/t/p/w300';
 
 const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
-  const location = useLocation();
 
   useEffect(() => {
     getMovieCastActors(movieId)
@@ -23,7 +21,7 @@ const Cast = () => {
   return cast.length !== 0 ? (
     <List>
       {cast.map(({ id, profile_path, character, name }) => (
-        <Link key={id} to={`/actors/${id}`} state={{ from: location }}>
+        <Link key={id} to={`/actors/${id}`}>
           <Card>
             <Img
               src={profile_path ? `${baseUrl}${profile_path}` : defaultImage}

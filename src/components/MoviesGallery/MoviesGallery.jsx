@@ -1,18 +1,16 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { List, Item, CoverImage, Title, Text } from 'pages/CommonStyles.styled';
 import defaultImage from 'assets/popcorn.jpg';
 
 const baseImageURL = 'https://image.tmdb.org/t/p/w300/';
 
 const MoviesGallery = ({ movies }) => {
-  const location = useLocation();
-
   return (
     <List>
       {movies.map(({ id, poster_path, title, release_date, vote_average }) => {
         return (
           <Item key={id}>
-            <Link to={`/movies/${id}`} state={{ from: location }}>
+            <Link to={`/movies/${id}`}>
               <CoverImage
                 src={
                   poster_path ? `${baseImageURL}${poster_path}` : defaultImage

@@ -1,5 +1,5 @@
-import { Suspense, useEffect, useRef, useState } from 'react';
-import { useParams, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Suspense, useEffect, useState } from 'react';
+import { useParams, Outlet, useNavigate } from 'react-router-dom';
 
 import { getActorById } from 'helpers/api';
 import AnimatedLoader from 'components/Loader/Loader';
@@ -20,10 +20,7 @@ const baseImageURL = 'https://image.tmdb.org/t/p/w300/';
 const ActorDetails = () => {
   const { actorId } = useParams();
   const [actor, setActor] = useState({});
-  const location = useLocation();
   const navigate = useNavigate();
-
-  const backLinkLocationRef = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     getActorById(actorId)
@@ -37,7 +34,6 @@ const ActorDetails = () => {
 
   return (
     <>
-      <StyledNav to={backLinkLocationRef.current}>Back to collection</StyledNav>
       <ActorCard>
         <img
           src={

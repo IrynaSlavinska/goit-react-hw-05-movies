@@ -5,7 +5,7 @@ const AnimatedLoader = () => {
   return (
     <LoaderContainer>
       <FallingLines
-        color="#ffffff"
+        color="#fff352"
         width="100"
         visible={true}
         ariaLabel="falling-lines-loading"

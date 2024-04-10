@@ -1,5 +1,5 @@
-import { Suspense, useEffect, useRef, useState } from 'react';
-import { useParams, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Suspense, useEffect, useState } from 'react';
+import { useParams, Outlet, useNavigate } from 'react-router-dom';
 import {
   StyledNav,
   MovieContainer,
@@ -23,10 +23,7 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const [genres, setGenres] = useState([]);
   const [company, setCompany] = useState([]);
-  const location = useLocation();
   const navigate = useNavigate();
-
-  const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
     getMoviesById(movieId)
@@ -42,8 +39,6 @@ const MovieDetails = () => {
 
   return (
     <>
-      <StyledNav to={backLinkLocationRef.current}>Back to collection</StyledNav>
-
       <MovieContainer>
         <img
           src={

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { getMovieCastActors } from 'helpers/api';
-import defaultImage from 'components/popcorn.jpg';
+import defaultImage from 'assets/popcorn.jpg';
+
 import { List, Card, Img, Text, TextCont } from './Cast.styled';
 
 const baseUrl = 'https://image.tmdb.org/t/p/w300';

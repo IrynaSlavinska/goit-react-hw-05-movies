@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getActorGallery } from 'helpers/api';
 import { List, Item } from './Gallery.styled';
-import defaultImage from 'components/popcorn.jpg';
+import defaultImage from 'assets/popcorn.jpg';
 const baseImageURL = 'https://image.tmdb.org/t/p/w300/';
 
 const Gallery = () => {

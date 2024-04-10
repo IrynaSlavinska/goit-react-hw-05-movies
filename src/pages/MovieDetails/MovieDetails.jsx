@@ -14,7 +14,7 @@ import {
 
 import { getMoviesById } from 'helpers/api';
 import AnimatedLoader from 'components/Loader/Loader';
-import defaultImage from 'components/popcorn.jpg';
+import defaultImage from 'assets/popcorn.jpg';
 
 const baseImageURL = 'https://image.tmdb.org/t/p/w300/';
 

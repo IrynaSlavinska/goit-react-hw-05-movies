@@ -1,11 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
-import {
-  MoviesList,
-  MovieCard,
-  CoverImage,
-  MovieTitle,
-} from 'pages/Home/Home.styled';
-import defaultImage from 'components/popcorn.jpg';
+import { List, Item, CoverImage, Title, Text } from 'pages/CommonStyles.styled';
+import defaultImage from 'assets/popcorn.jpg';
 
 const baseImageURL = 'https://image.tmdb.org/t/p/w300/';
 
@@ -13,10 +8,10 @@ const MoviesGallery = ({ movies }) => {
   const location = useLocation();
 
   return (
-    <MoviesList>
-      {movies.map(({ id, poster_path, title }) => {
+    <List>
+      {movies.map(({ id, poster_path, title, release_date, vote_average }) => {
         return (
-          <MovieCard key={id}>
+          <Item key={id}>
             <Link to={`/movies/${id}`} state={{ from: location }}>
               <CoverImage
                 src={
@@ -26,12 +21,14 @@ const MoviesGallery = ({ movies }) => {
                 width="250"
                 height="350"
               />
-              <MovieTitle>{title}</MovieTitle>
+              <Title>{title}</Title>
+              <Text>Release date: {release_date}</Text>
+              <Text>Rating: {vote_average.toFixed()}/10</Text>
             </Link>
-          </MovieCard>
+          </Item>
         );
       })}
-    </MoviesList>
+    </List>
   );
 };
 

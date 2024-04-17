@@ -9,7 +9,6 @@ const Home = () => {
   useEffect(() => {
     getMovies()
       .then(result => {
-        console.log(result);
         setPopularMovies(result);
       })
       .catch(err => console.log(err));

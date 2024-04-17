@@ -3,7 +3,6 @@ import { useParams, Outlet, useNavigate } from 'react-router-dom';
 import {
   StyledNav,
   MovieContainer,
-  Container,
   Title,
   About,
   Subtitle,
@@ -37,9 +36,12 @@ const MovieDetails = () => {
       });
   }, [movieId, navigate]);
 
+  const backgroundUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
+  const backgroundSrc = movie.backdrop_path && backgroundUrl;
+
   return (
     <>
-      <MovieContainer>
+      <MovieContainer background={backgroundSrc}>
         <img
           src={
             movie.poster_path
@@ -51,7 +53,7 @@ const MovieDetails = () => {
           height="350"
         />
 
-        <Container>
+        <div>
           <Title>{movie.title}</Title>
           <About>{movie.overview}</About>
           <Subtitle>Genres:</Subtitle>
@@ -73,7 +75,7 @@ const MovieDetails = () => {
             alt={company.name}
             width={100}
           />
-        </Container>
+        </div>
       </MovieContainer>
       <List>
         <li>

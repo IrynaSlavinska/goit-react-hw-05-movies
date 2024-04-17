@@ -48,29 +48,30 @@ export const MovieContainer = styled.div`
 `;
 
 export const CoverImage = styled.img`
-  width: auto;
-  height: 100%;
   margin-bottom: 12px;
   border-radius: 6px;
 `;
 
 export const Title = styled.h1`
   text-align: center;
-  color: #ffffff;
+  color: var(--white);
   font-size: 52px;
   margin-bottom: 20px;
 `;
 
 export const About = styled.p`
-  color: #ffffff;
+  color: var(--white);
   font-size: 18px;
   margin-bottom: 20px;
-  max-width: 1000px;
   line-height: 1.5;
+
+  @media screen and (min-width: 1440px) {
+    font-size: 22px;
+  }
 `;
 
 export const Subtitle = styled.h2`
-  color: #ffffff;
+  color: var(--white);
   font-size: 22px;
   margin-bottom: 6px;
 `;
@@ -82,11 +83,11 @@ export const List = styled.ul`
 `;
 
 export const GenreItem = styled.li`
-  color: #ffffff;
-  font-size: 18px;
+  color: var(--white);
+  font-size: 22px;
 `;
 
 export const CompanyLogo = styled.img`
-  background-color: #ffffff;
+  background-color: var(--white);
   padding: 10px;
 `;

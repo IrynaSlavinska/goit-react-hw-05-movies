@@ -3,6 +3,7 @@ import { useParams, Outlet, useNavigate } from 'react-router-dom';
 import {
   StyledNav,
   MovieContainer,
+  CoverImage,
   Title,
   About,
   Subtitle,
@@ -42,7 +43,7 @@ const MovieDetails = () => {
   return (
     <>
       <MovieContainer background={backgroundSrc}>
-        <img
+        <CoverImage
           src={
             movie.poster_path
               ? `${baseImageURL}${movie.poster_path}`

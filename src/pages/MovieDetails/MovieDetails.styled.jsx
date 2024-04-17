@@ -1,18 +1,6 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-//   @media screen and (min-width: 375px) {
-//     max-width: 375px;
-//   }
-
-//   @media screen and (min-width: 768px) {
-//     gap: 32px;
-//   }
-
-//   @media screen and (min-width: 1440px) {
-//     max-width: 1408px;
-//   }
-
 export const StyledNav = styled(NavLink)`
   color: #ffffff;
   font-size: 20px;
@@ -24,35 +12,15 @@ export const StyledNav = styled(NavLink)`
   }
 `;
 
-// export const MovieContainer = styled.div`
-//   display: flex;
-//   gap: 60px;
-//   align-items: center;
-//   margin-bottom: 20px;
-//   padding: 50px;
-//   background-color: var(--yellow);
-//   background-image: url(${props => props.background});
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   background-size: cover;
-// `;
-
 export const MovieContainer = styled.div`
+  padding: 20px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  /* gap: 60px; */
   align-items: center;
-  margin-bottom: 20px;
-  /* padding: 50px; */
-  padding: 20px;
   background-color: var(--yellow);
   position: relative;
-  background-image: linear-gradient(
-      180deg,
-      rgba(17, 17, 17, 0) 0%,
-      rgba(17, 17, 17, 0.4) 100%
-    ),
-    url(${props => props.background});
+  background-image: url(${props => props.background});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -65,9 +33,25 @@ export const MovieContainer = styled.div`
     width: 100%;
     height: 100%;
     background-image: url(${props => props.background});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     filter: blur(16px);
     z-index: -1;
   }
+
+  @media screen and (min-width: 1440px) {
+    padding: 40px;
+    flex-direction: row;
+    gap: 40px;
+  }
+`;
+
+export const CoverImage = styled.img`
+  width: auto;
+  height: 100%;
+  margin-bottom: 12px;
+  border-radius: 6px;
 `;
 
 export const Title = styled.h1`

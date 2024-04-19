@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReview } from 'helpers/api';
-import { List, Item, Author, Text } from './Revies.styled';
+import { List, Item, Author, Text, ToggleButton } from './Revies.styled';
 
 // const Reviews = () => {
 //   const { movieId } = useParams();
@@ -62,9 +62,12 @@ const Reviews = () => {
               <Text>
                 {isExpanded ? content : `${content.substring(0, 100)}...`}
                 {content.length > 100 && (
-                  <button type="button" onClick={() => handleToggleExpand(id)}>
-                    {isExpanded ? 'Показати менше' : 'Показати більше'}
-                  </button>
+                  <ToggleButton
+                    type="button"
+                    onClick={() => handleToggleExpand(id)}
+                  >
+                    {isExpanded ? 'Show less' : 'Show more'}
+                  </ToggleButton>
                 )}
               </Text>
             </Item>

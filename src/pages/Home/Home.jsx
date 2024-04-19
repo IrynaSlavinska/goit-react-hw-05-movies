@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import { getMovies } from 'helpers/api';
 import MoviesGallery from 'components/MoviesGallery/MoviesGallery';
 

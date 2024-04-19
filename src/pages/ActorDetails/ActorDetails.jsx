@@ -1,10 +1,7 @@
 import { Suspense, useEffect, useState } from 'react';
 import { useParams, Outlet, useNavigate } from 'react-router-dom';
-
 import { getActorById } from 'helpers/api';
 import AnimatedLoader from 'components/Loader/Loader';
-import defaultImage from 'assets/popcorn.jpg';
-
 import {
   StyledNav,
   ActorCard,
@@ -14,6 +11,7 @@ import {
   Text,
   List,
 } from './ActorDetails.styled';
+import defaultImage from 'assets/popcorn.jpg';
 
 const baseImageURL = 'https://image.tmdb.org/t/p/w300/';
 
@@ -42,6 +40,8 @@ const ActorDetails = () => {
               : defaultImage
           }
           alt={actor.name}
+          width="250"
+          height="350"
         />
         <ActorData>
           <Name>{actor.name}</Name>
@@ -49,10 +49,10 @@ const ActorDetails = () => {
           <Text>{actor.birthday}</Text>
           <Info>Place of birth:</Info>
           <Text>{actor.place_of_birth}</Text>
+          <Info>Biography:</Info>
           <Text>{actor.biography}</Text>
         </ActorData>
       </ActorCard>
-
       <List>
         <li>
           <StyledNav to="films">Filmography</StyledNav>

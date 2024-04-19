@@ -28,6 +28,8 @@ const Gallery = () => {
                   : defaultImage
               }
               alt={item.vote_average}
+              width="250"
+              height="350"
             />
           </Item>
         );

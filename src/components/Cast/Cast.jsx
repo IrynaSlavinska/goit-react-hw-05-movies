@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getMovieCastActors } from 'helpers/api';
-import defaultImage from 'assets/popcorn.jpg';
 import { List, Item, CoverImage, Title } from 'pages/CommonStyles.styled';
+import defaultImage from 'assets/popcorn.jpg';
 
 const baseUrl = 'https://image.tmdb.org/t/p/w300';
 
@@ -26,8 +26,8 @@ const Cast = () => {
             <CoverImage
               src={profile_path ? `${baseUrl}${profile_path}` : defaultImage}
               alt={name}
-              width="150"
-              height="250"
+              width="250"
+              height="350"
             />
             <Title>
               Character: <span>{character}</span>

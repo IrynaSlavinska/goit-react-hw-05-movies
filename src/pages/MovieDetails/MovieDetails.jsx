@@ -1,5 +1,7 @@
 import { Suspense, useEffect, useState } from 'react';
 import { useParams, Outlet, useNavigate } from 'react-router-dom';
+import { getMoviesById } from 'helpers/api';
+import AnimatedLoader from 'components/Loader/Loader';
 import {
   StyledNav,
   MovieContainer,
@@ -11,9 +13,6 @@ import {
   GenreItem,
   CompanyLogo,
 } from './MovieDetails.styled';
-
-import { getMoviesById } from 'helpers/api';
-import AnimatedLoader from 'components/Loader/Loader';
 import defaultImage from 'assets/popcorn.jpg';
 
 const baseImageURL = 'https://image.tmdb.org/t/p/w300/';

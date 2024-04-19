@@ -31,7 +31,7 @@ const Search = () => {
         <Label>
           <Input type="text" placeholder="Enter movie name..." name="search" />
           <Button type="submit">
-            <IconContext.Provider value={{ color: '#ffffff', size: 40 }}>
+            <IconContext.Provider value={{ color: '#fafafa', size: 40 }}>
               <CiSearch />
             </IconContext.Provider>
           </Button>

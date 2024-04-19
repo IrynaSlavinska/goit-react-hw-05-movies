@@ -18,7 +18,7 @@ export const Input = styled.input`
   font-size: 20px;
   width: 350px;
   outline: transparent;
-  border: 2px solid rgb(50, 50, 87);
+  border: 2px solid var(--yellow);
 `;
 
 export const Button = styled.button`

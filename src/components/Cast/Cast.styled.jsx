@@ -29,5 +29,5 @@ export const TextCont = styled.div`
 `;
 
 export const Text = styled.p`
-  color: #ffffff;
+  color: var(--white);
 `;

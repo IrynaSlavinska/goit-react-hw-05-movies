@@ -3,36 +3,6 @@ import { useParams } from 'react-router-dom';
 import { getMovieReview } from 'helpers/api';
 import { List, Item, Author, Text, ToggleButton } from './Revies.styled';
 
-// const Reviews = () => {
-//   const { movieId } = useParams();
-//   const [reviews, setReviews] = useState([]);
-
-//   useEffect(() => {
-//     getMovieReview(movieId).then(result => {
-//       setReviews(result.results);
-//     });
-//   }, [movieId]);
-
-//   return (
-//     <List>
-//       {reviews.length !== 0 ? (
-//         reviews.map(({ id, author, content }) => {
-//           return (
-//             <Item key={id}>
-//               <Title>{author}</Title>
-//               <Text>{content}</Text>
-//             </Item>
-//           );
-//         })
-//       ) : (
-//         <p>Not found</p>
-//       )}
-//     </List>
-//   );
-// };
-
-// export default Reviews;
-
 const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
@@ -74,7 +44,7 @@ const Reviews = () => {
           );
         })
       ) : (
-        <p>Not found</p>
+        <Text>Not found</Text>
       )}
     </List>
   );

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import { getActors } from 'helpers/api';
 import ActorsGallery from 'components/ActorsGallery/ActorsGallery';
 

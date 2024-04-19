@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const StyledNav = styled(NavLink)`
-  color: #ffffff;
+  color: var(--white);
   font-size: 20px;
   &:hover {
     color: var(--yellow);

@@ -44,7 +44,7 @@ export const NavItem = styled.li`
 `;
 
 export const StyledNav = styled(NavLink)`
-  color: #ffffff;
+  color: var(--white);
   font-size: 24px;
   transition: color var(--transition);
   &:hover,

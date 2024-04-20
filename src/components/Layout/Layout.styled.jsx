@@ -4,8 +4,12 @@ import { NavLink } from 'react-router-dom';
 export const Header = styled.header`
   width: 100%;
   padding: 10px 16px;
-  margin: 0 auto;
   border-bottom: 1px solid var(--yellow);
+  position: fixed;
+  z-index: 5;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--background);
 
   @media screen and (min-width: 375px) {
     max-width: 375px;
@@ -60,11 +64,13 @@ export const StyledNav = styled(NavLink)`
   }
 `;
 
-export const Main = styled.main``;
+export const Main = styled.main`
+  padding-top: 50px;
+`;
 
 export const Container = styled.div`
   width: 100%;
-  padding: 20px 16px;
+  padding: 0 16px 20px 16px;
   margin: 0 auto;
 
   @media screen and (min-width: 375px) {
